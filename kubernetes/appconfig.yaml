@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  HOST: "postgres-service"
+  PORT: "5432"
+  USER: "odoo"
+  PASSWORD: "odoo"
+  odoo.conf: |
+    [options]
+    addons_path = /mnt/extra-addons
+    admin_passwd = admin
+    data_dir = /var/lib/odoo
+
+    #proxy_mode = True
+    #workers = 1
+    #limit_request = 2000
+    #max_cron_threads = 1
+
+    #gevent_port=8072
+
+    #list_db = True

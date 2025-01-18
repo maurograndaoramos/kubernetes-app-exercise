@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: odoo-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: odoo
+  template:
+    metadata:
+      labels:
+        app: odoo
+    spec:
+      containers:
+      - name: odoo
+        image: odoo:18
+        ports:
+          - containerPort: 8069
+        envFrom:
+          - configMapRef:
+              name: app-config
+        volumeMounts:
+          - name: odoo-conf-volume
+            mountPath: /etc/odoo
+      volumes:
+        - name: odoo-conf-volume
+          configMap:
+            name: app-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: odoo-service
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8069
+      targetPort: 8069
+  selector:
+    app: odoo
