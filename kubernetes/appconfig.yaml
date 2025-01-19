@@ -2,13 +2,13 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: app-config
-data:
+data: #Estou a usar o data para definir as variáveis de ambiente que o odoo precisa para correr.
   HOST: "postgres-service"
   PORT: "5432"
   USER: "odoo"
   PASSWORD: "odoo"
-  odoo.conf: |
-    [options]
+  odoo.conf: | #Não entendo bem o usecase do odoo.conf. Pelo que percebi, é um ficheiro de configuração que o odoo lê, okay. Mas se já estou a incluir o content inline, porque é que tenho que ter o odoo.conf no folder configs? Não seria mais fácil ter tudo num só sítio?
+    [options] 
     addons_path = /mnt/extra-addons
     admin_passwd = admin
     data_dir = /var/lib/odoo

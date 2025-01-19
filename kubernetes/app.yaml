@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: odoo-deployment
 spec:
-  replicas: 1
+  replicas: 1 #Estou a aplicar apenas 1 replica para este exemplo mas pode ser alterado. Idealmente, 3.
   selector:
     matchLabels:
       app: odoo
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: odoo
-        image: odoo:18
+        image: odoo:18 #Estou a usar a imagem odoo:18 para ser específico. Pessoalmente, tento evitar o uso de latest, caso haja updates que possam quebrar a aplicação.
         ports:
           - containerPort: 8069
         envFrom:
@@ -29,8 +29,8 @@ spec:
             name: app-config
 ---
 apiVersion: v1
-kind: Service
-metadata:
+kind: Service #Estou a colocar o service diretamente dentro do app.yaml para simplificar o processo e para que haja menos ficheiros e menos confusão.
+metadata: #Also, é fixe. Plus, penso que é mais fácil de gerir e segmenta bem os tipos de recursos.
   name: odoo-service
 spec:
   type: ClusterIP
