@@ -1,6 +1,12 @@
 # Kubernetes Application Deployment Exercise
 ## Overview
-This exercise demonstrates how to deploy an Odoo application (see what this is [here](https://odoo.com)) in a Minikube cluster using Kubernetes objects. The repository contains an Odoo application project, and your task is to implement the necessary Kubernetes resources to run this application in a local Minikube environment.
+This exercise allowed the deployment of an Odoo application in a Minikube cluster using Kubernetes objects. The repository contains an Odoo application project and postgresSQL database. Run this application in a local Minikube environment.
+
+## Submission
+- [x] A fork of this repository has been created.
+- [x] A `kubernetes` directory has been created in the project repository, and all Kubernetes YAML files have been placed there. Each resource includes a brief explanation in comments within the YAML files.
+
+
 ### Prerequisites
 
 - Minikube installed and running
@@ -24,13 +30,3 @@ This exercise demonstrates how to deploy an Odoo application (see what this is [
       - Use a persistent volume for PostgreSQL data storage
     - Apply the Kubernetes objects to your Minikube cluster using kubectl apply -f <filename>.yaml.
     - Verify the deployment by accessing the Odoo application through the domain name
-
-## Submission
-- [ ] Create a fork of this repository so I can take a look later on. 
-- [ ] create `kubernetes` directory in the project repository and place all your Kubernetes YAML files there. Include a brief explanation of each resource in comments within the YAML files.
-
-> [!IMPORTANT]
-> Create also a text file in Drive 
-
-
-Good luck
